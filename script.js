@@ -11,6 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- 1.5. ANIMAȚIE SMOOTH SCROLL (NAVIGARE LINĂ) ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      
+      // Ignorăm link-urile goale
+      if (targetId === '#' || !targetId) return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+
+        // Derulare lină și fluidă direct din JS
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
   /* ---------- 2. TAB-URI MENIU (FILTRARE DUPĂ CATEGORIE) ---------- */
   const menuTabs = document.querySelector('.menu-tabs');
   
