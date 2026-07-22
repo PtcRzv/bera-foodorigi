@@ -122,4 +122,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================
+  // 5. REACȚII RECENZII (LIKE / DISLIKE)
+  // ==========================================
+  const revCards = document.querySelectorAll('.rev-card');
+
+  revCards.forEach((card, index) => {
+    const likeBtn = card.querySelector('.react-btn.like');
+    const dislikeBtn = card.querySelector('.react-btn.dislike');
+    
+    if (likeBtn && dislikeBtn) {
+      // Cheie unică în memoria browserului pentru fiecare card
+      const storageKey = `voted_recenzie_${index}`;
+      const savedVote = localStorage.getItem(storageKey);
+
+      // Verificăm dacă utilizatorul a votat deja această recenzie în trecut
+      if (savedVote) {
+        likeBtn.disabled = true;
+        dislikeBtn.disabled = true;
+        
+        if (savedVote === 'like') likeBtn.classList.add('active');
+        if (savedVote === 'dislike') dislikeBtn.classList.add('active');
+      }
+
+      // Event Click pe butonul Like
+      likeBtn.addEventListener('click', () => {
+        if (!likeBtn.disabled) {
+          const countSpan = likeBtn.querySelector('.count');
+          if (countSpan) {
+            countSpan.textContent = parseInt(countSpan.textContent || '0', 10) + 1;
+          }
+          
+          likeBtn.classList.add('active');
+          likeBtn.disabled = true;
+          dislikeBtn.disabled = true;
+
+          localStorage.setItem(storageKey, 'like');
+        }
+      });
+
+      // Event Click pe butonul Dislike
+      dislikeBtn.addEventListener('click', () => {
+        if (!dislikeBtn.disabled) {
+          const countSpan = dislikeBtn.querySelector('.count');
+          if (countSpan) {
+            countSpan.textContent = parseInt(countSpan.textContent || '0', 10) + 1;
+          }
+          
+          dislikeBtn.classList.add('active');
+          likeBtn.disabled = true;
+          dislikeBtn.disabled = true;
+
+          localStorage.setItem(storageKey, 'dislike');
+        }
+      });
+    }
+  });
+
 });
