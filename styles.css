@@ -19,8 +19,14 @@
   box-sizing: border-box;
 }
 
+/* Asigură derulare lină și spațiu pentru antetul fix */
 html {
-  scroll-behavior: smooth; /* Derulare lină la apăsarea pe meniu/link-uri */
+  scroll-behavior: smooth !important;
+}
+
+/* Compensează înălțimea barei de navigare când te duce la secțiuni */
+section[id] {
+  scroll-margin-top: 70px;
 }
 
 body {
