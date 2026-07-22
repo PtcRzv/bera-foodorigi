@@ -99,39 +99,37 @@
     <div class="sec-head">
       <span class="eyebrow">Meniu & Prețuri</span>
       <h2>CE GĂSEȘTI LA BERA FOOD</h2>
-      <p>Toate preparatele sunt pregătite zilnic cu ingrediente proaspete și sosuri făcute în casă.</p>
+      <p>Ingrediente proaspete, porții generoase și rețete autentice.</p>
     </div>
 
-    <!-- TABS CATEGORII -->
-    <div class="menu-tabs">
-      <button class="tab-btn active" onclick="switchTab('shaorma')">Shaorma & Kebab</button>
-      <button class="tab-btn" onclick="switchTab('farfurie')">La Farfurie</button>
-      <button class="tab-btn" onclick="switchTab('oriental')">Oriental & Salate</button>
-    </div>
+    <!-- GRID-UL PRINCIPAL DE MENIU (5 CARDURI DUPĂ POZĂ) -->
+    <div class="menu-board-grid">
 
-    <!-- CATEGORIA 1: SHAORMA & KEBAB -->
-    <div id="cat-shaorma" class="menu-cat active">
-      
-      <!-- CARD SHAORMA -->
-      <div class="menu-card">
+      <!-- 1. SAORMA -->
+      <div class="menu-card card-wide">
         <div class="menu-card-header">
-          <h3>Shaorma</h3>
-          <p>Servită în lipie proaspătă cu sosuri speciale la alegere</p>
+          <h3>Saorma</h3>
         </div>
         <div class="menu-card-items">
-          
+          <!-- Cap de tabel pentru coloane -->
+          <div class="menu-cols-head">
+            <span></span>
+            <div class="col-labels">
+              <span>MICĂ</span>
+              <span>FARAON</span>
+            </div>
+          </div>
+
           <div class="menu-item-row">
             <span class="menu-item-name">PUI</span>
             <div class="menu-item-prices">
               <div class="price-variant">
-                <span class="label">Mică</span>
-                <span class="val">25 lei</span>
-                <span class="grams">450g</span>
+                <span class="val">25 <small>lei</small></span>
+                <span class="grams">450 gr</span>
               </div>
               <div class="price-variant">
-                <span class="label">Faraon</span>
-                <span class="val">30 lei</span>
-                <span class="grams">600g</span>
+                <span class="val">30 <small>lei</small></span>
+                <span class="grams">600 gr</span>
               </div>
             </div>
           </div>
@@ -139,110 +137,178 @@
           <div class="menu-item-row">
             <span class="menu-item-name">CRISPY</span>
             <div class="menu-item-prices">
+              <div class="price-variant empty"></div>
               <div class="price-variant">
-                <span class="label">Faraon</span>
-                <span class="val">32 lei</span>
-                <span class="grams">600g</span>
+                <span class="val">32 <small>lei</small></span>
+                <span class="grams">600 gr</span>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
-      <!-- CARD KEBAB -->
-      <div class="menu-card">
-        <div class="menu-card-header">
-          <h3>Kebab</h3>
-          <p>În chiflă sau lipie, cu ingrediente la alegere</p>
-        </div>
-        <div class="menu-card-items">
-          
-          <div class="menu-item-row">
-            <span class="menu-item-name">PUI</span>
-            <div class="menu-item-prices">
-              <div class="price-variant">
-                <span class="label">Faraon</span>
-                <span class="val">27 lei</span>
-                <span class="grams">420g</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">CRISPY</span>
-            <div class="menu-item-prices">
-              <div class="price-variant">
-                <span class="label">Faraon</span>
-                <span class="val">29 lei</span>
-                <span class="grams">420g</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">BURGER PUI</span>
-            <div class="menu-item-prices">
-              <div class="price-variant">
-                <span class="val">25 lei</span>
-                <span class="grams">350g</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-    <!-- CATEGORIA 2: LA FARFURIE -->
-    <div id="cat-farfurie" class="menu-cat">
-      <div class="menu-card" style="grid-column: span 2;">
+      <!-- 2. LA FARFURIE -->
+      <div class="menu-card card-wide">
         <div class="menu-card-header">
           <h3>La Farfurie</h3>
-          <p>Porții generoase cu garnitură de cartofi, salată și sosuri</p>
         </div>
         <div class="menu-card-items">
-          
+          <div class="menu-cols-head">
+            <span></span>
+            <div class="col-labels">
+              <span>FARAON</span>
+            </div>
+          </div>
+
           <div class="menu-item-row">
             <span class="menu-item-name">PUI</span>
             <div class="price-variant">
-              <span class="val">32 lei</span>
-              <span class="grams">500g</span>
+              <span class="val">32 <small>lei</small></span>
+              <span class="grams">500 gr</span>
             </div>
           </div>
 
           <div class="menu-item-row">
             <span class="menu-item-name">CRISPY</span>
             <div class="price-variant">
-              <span class="val">33 lei</span>
-              <span class="grams">500g</span>
+              <span class="val">33 <small>lei</small></span>
+              <span class="grams">500 gr</span>
             </div>
           </div>
 
           <div class="menu-item-row">
             <span class="menu-item-name">ȘNIȚEL</span>
             <div class="price-variant">
-              <span class="val">33 lei</span>
-              <span class="grams">500g</span>
+              <span class="val">33 <small>lei</small></span>
+              <span class="grams">500 gr</span>
             </div>
           </div>
 
           <div class="menu-item-row">
             <span class="menu-item-name">ARIPIOARE</span>
             <div class="price-variant">
-              <span class="val">32 lei</span>
-              <span class="grams">500g</span>
+              <span class="val">32 <small>lei</small></span>
+              <span class="grams">500 gr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. KEBAB -->
+      <div class="menu-card">
+        <div class="menu-card-header">
+          <h3>Kebab</h3>
+        </div>
+        <div class="menu-card-items">
+          <div class="menu-cols-head">
+            <span></span>
+            <div class="col-labels">
+              <span>FARAON</span>
             </div>
           </div>
 
+          <div class="menu-item-row">
+            <span class="menu-item-name">PUI</span>
+            <div class="price-variant">
+              <span class="val">27 <small>lei</small></span>
+              <span class="grams">420 gr</span>
+            </div>
+          </div>
+
+          <div class="menu-item-row">
+            <span class="menu-item-name">CRISPY</span>
+            <div class="price-variant">
+              <span class="val">29 <small>lei</small></span>
+              <span class="grams">420 gr</span>
+            </div>
+          </div>
+
+          <div class="menu-item-row">
+            <span class="menu-item-name">BURGER PUI</span>
+            <div class="price-variant">
+              <span class="val">25 <small>lei</small></span>
+              <span class="grams">350 gr</span>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- 4. ORIENTAL -->
+      <div class="menu-card">
+        <div class="menu-card-header">
+          <h3>Oriental</h3>
+        </div>
+        <div class="menu-card-items">
+          <div class="menu-item-row">
+            <span class="menu-item-name">OREZ</span>
+            <div class="price-variant">
+              <span class="val">10 <small>lei</small></span>
+              <span class="grams">180 gr</span>
+            </div>
+          </div>
+
+          <div class="menu-item-row">
+            <span class="menu-item-name">OREZ CU PUI</span>
+            <div class="price-variant">
+              <span class="val">25 <small>lei</small></span>
+              <span class="grams">300 gr</span>
+            </div>
+          </div>
+
+          <div class="menu-item-row">
+            <span class="menu-item-name">FALAFEL LIPIE</span>
+            <div class="price-variant">
+              <span class="val">20 <small>lei</small></span>
+              <span class="grams">400 gr</span>
+            </div>
+          </div>
+
+          <div class="menu-item-row">
+            <span class="menu-item-name">FALAFEL FARFURIE</span>
+            <div class="price-variant">
+              <span class="val">24 <small>lei</small></span>
+              <span class="grams">420 gr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. SALATE -->
+      <div class="menu-card">
+        <div class="menu-card-header">
+          <h3>Salate</h3>
+        </div>
+        <div class="menu-card-items">
+          <div class="menu-cols-head">
+            <span></span>
+            <div class="col-labels">
+              <span>FARAON</span>
+            </div>
+          </div>
+
+          <div class="menu-item-row">
+            <span class="menu-item-name">PUI</span>
+            <div class="price-variant">
+              <span class="val">22 <small>lei</small></span>
+              <span class="grams">320 gr</span>
+            </div>
+          </div>
+
+          <div class="menu-item-row">
+            <span class="menu-item-name">CRISPY</span>
+            <div class="price-variant">
+              <span class="val">24 <small>lei</small></span>
+              <span class="grams">320 gr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- BANNER LIVRARE -->
+    <!-- NOTĂ LIVRARE -->
     <div class="combo-note">
-      🔥 Livrare fără contact disponibilă — comandă prin butonul de sus (telefon sau Wolt).
+      🔥 Livrare fără contact disponibilă — comandă direct prin telefon sau Wolt.
     </div>
 
   </div>
