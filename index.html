@@ -99,221 +99,139 @@
     <div class="sec-head">
       <span class="eyebrow">Meniu & Prețuri</span>
       <h2>CE GĂSEȘTI LA BERA FOOD</h2>
-      <p>Ingrediente proaspete, porții generoase și rețete autentice.</p>
+      <p>Toate prețurile pot fi actualizate rapid din codul site-ului.</p>
     </div>
 
-    <!-- GRID-UL PRINCIPAL DE MENIU (5 CARDURI DUPĂ POZĂ) -->
-    <div class="menu-board-grid">
+    <!-- BUTOANELE DE FILTRARE (TABS) -->
+    <div class="menu-tabs">
+      <button class="tab-btn active" data-category="shaorma">SHAORMA & KEBAB</button>
+      <button class="tab-btn" data-category="burgeri">BURGERI</button>
+      <button class="tab-btn" data-category="garnituri">GARNITURI</button>
+      <button class="tab-btn" data-category="bauturi">BĂUTURI</button>
+      <button class="tab-btn" data-category="combo">MENIURI COMBO</button>
+    </div>
 
-      <!-- 1. SAORMA -->
-      <div class="menu-card card-wide">
-        <div class="menu-card-header">
-          <h3>Saorma</h3>
+    <!-- CONTAINER PRODUSE -->
+    <div class="menu-grid">
+
+      <!-- CATEGORIA: SHAORMA & KEBAB -->
+      <div class="menu-ticket" data-category="shaorma">
+        <div class="ticket-info">
+          <h4>Shaorma pui clasică</h4>
+          <p>Lipie, pui marinat, legume, sos la alegere</p>
         </div>
-        <div class="menu-card-items">
-          <!-- Cap de tabel pentru coloane -->
-          <div class="menu-cols-head">
-            <span></span>
-            <div class="col-labels">
-              <span>MICĂ</span>
-              <span>FARAON</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">PUI</span>
-            <div class="menu-item-prices">
-              <div class="price-variant">
-                <span class="val">25 <small>lei</small></span>
-                <span class="grams">450 gr</span>
-              </div>
-              <div class="price-variant">
-                <span class="val">30 <small>lei</small></span>
-                <span class="grams">600 gr</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">CRISPY</span>
-            <div class="menu-item-prices">
-              <div class="price-variant empty"></div>
-              <div class="price-variant">
-                <span class="val">32 <small>lei</small></span>
-                <span class="grams">600 gr</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="ticket-price">22 lei</div>
       </div>
 
-      <!-- 2. LA FARFURIE -->
-      <div class="menu-card card-wide">
-        <div class="menu-card-header">
-          <h3>La Farfurie</h3>
+      <div class="menu-ticket" data-category="shaorma">
+        <div class="ticket-info">
+          <h4>Shaorma pui XL</h4>
+          <p>Porție dublă de carne, lipie mare</p>
         </div>
-        <div class="menu-card-items">
-          <div class="menu-cols-head">
-            <span></span>
-            <div class="col-labels">
-              <span>FARAON</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">PUI</span>
-            <div class="price-variant">
-              <span class="val">32 <small>lei</small></span>
-              <span class="grams">500 gr</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">CRISPY</span>
-            <div class="price-variant">
-              <span class="val">33 <small>lei</small></span>
-              <span class="grams">500 gr</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">ȘNIȚEL</span>
-            <div class="price-variant">
-              <span class="val">33 <small>lei</small></span>
-              <span class="grams">500 gr</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">ARIPIOARE</span>
-            <div class="price-variant">
-              <span class="val">32 <small>lei</small></span>
-              <span class="grams">500 gr</span>
-            </div>
-          </div>
-        </div>
+        <div class="ticket-price">28 lei</div>
       </div>
 
-      <!-- 3. KEBAB -->
-      <div class="menu-card">
-        <div class="menu-card-header">
-          <h3>Kebab</h3>
+      <div class="menu-ticket" data-category="shaorma">
+        <div class="ticket-info">
+          <h4>Shaorma de vită</h4>
+          <p>Vită la frigare, ceapă roșie, sos usturoi</p>
         </div>
-        <div class="menu-card-items">
-          <div class="menu-cols-head">
-            <span></span>
-            <div class="col-labels">
-              <span>FARAON</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">PUI</span>
-            <div class="price-variant">
-              <span class="val">27 <small>lei</small></span>
-              <span class="grams">420 gr</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">CRISPY</span>
-            <div class="price-variant">
-              <span class="val">29 <small>lei</small></span>
-              <span class="grams">420 gr</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">BURGER PUI</span>
-            <div class="price-variant">
-              <span class="val">25 <small>lei</small></span>
-              <span class="grams">350 gr</span>
-            </div>
-          </div>
-        </div>
+        <div class="ticket-price">30 lei</div>
       </div>
 
-      <!-- 4. ORIENTAL -->
-      <div class="menu-card">
-        <div class="menu-card-header">
-          <h3>Oriental</h3>
+      <div class="menu-ticket" data-category="shaorma">
+        <div class="ticket-info">
+          <h4>Kebab în lipie</h4>
+          <p>Carne mixtă, varză, roșii, sos picant</p>
         </div>
-        <div class="menu-card-items">
-          <div class="menu-item-row">
-            <span class="menu-item-name">OREZ</span>
-            <div class="price-variant">
-              <span class="val">10 <small>lei</small></span>
-              <span class="grams">180 gr</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">OREZ CU PUI</span>
-            <div class="price-variant">
-              <span class="val">25 <small>lei</small></span>
-              <span class="grams">300 gr</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">FALAFEL LIPIE</span>
-            <div class="price-variant">
-              <span class="val">20 <small>lei</small></span>
-              <span class="grams">400 gr</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">FALAFEL FARFURIE</span>
-            <div class="price-variant">
-              <span class="val">24 <small>lei</small></span>
-              <span class="grams">420 gr</span>
-            </div>
-          </div>
-        </div>
+        <div class="ticket-price">24 lei</div>
       </div>
 
-      <!-- 5. SALATE -->
-      <div class="menu-card">
-        <div class="menu-card-header">
-          <h3>Salate</h3>
+      <div class="menu-ticket" data-category="shaorma">
+        <div class="ticket-info">
+          <h4>Shaorma vegetariană</h4>
+          <p>Legume la grătar, brânză, sos de iaurt</p>
         </div>
-        <div class="menu-card-items">
-          <div class="menu-cols-head">
-            <span></span>
-            <div class="col-labels">
-              <span>FARAON</span>
-            </div>
-          </div>
+        <div class="ticket-price">20 lei</div>
+      </div>
 
-          <div class="menu-item-row">
-            <span class="menu-item-name">PUI</span>
-            <div class="price-variant">
-              <span class="val">22 <small>lei</small></span>
-              <span class="grams">320 gr</span>
-            </div>
-          </div>
-
-          <div class="menu-item-row">
-            <span class="menu-item-name">CRISPY</span>
-            <div class="price-variant">
-              <span class="val">24 <small>lei</small></span>
-              <span class="grams">320 gr</span>
-            </div>
-          </div>
+      <div class="menu-ticket" data-category="shaorma">
+        <div class="ticket-info">
+          <h4>Shaorma în farfurie</h4>
+          <p>Fără lipie, cu garnitură de cartofi și salată</p>
         </div>
+        <div class="ticket-price">26 lei</div>
+      </div>
+
+      <!-- CATEGORIA: BURGERI -->
+      <div class="menu-ticket hidden" data-category="burgeri">
+        <div class="ticket-info">
+          <h4>Burger Pui Crispy</h4>
+          <p>Chiflă brioche, pui crispy, sos special, salată</p>
+        </div>
+        <div class="ticket-price">25 lei</div>
+      </div>
+
+      <div class="menu-ticket hidden" data-category="burgeri">
+        <div class="ticket-info">
+          <h4>Burger Vita Classic</h4>
+          <p>Carne de vită, cheddar, castraveți murați, sos bbq</p>
+        </div>
+        <div class="ticket-price">32 lei</div>
+      </div>
+
+      <!-- CATEGORIA: GARNITURI -->
+      <div class="menu-ticket hidden" data-category="garnituri">
+        <div class="ticket-info">
+          <h4>Cartofi Prăjiți</h4>
+          <p>Porție mare de cartofi pai rumeniți</p>
+        </div>
+        <div class="ticket-price">10 lei</div>
+      </div>
+
+      <div class="menu-ticket hidden" data-category="garnituri">
+        <div class="ticket-info">
+          <h4>Inele de Ceapă</h4>
+          <p>8 bucăți crocante cu sos dulce-acrișor</p>
+        </div>
+        <div class="ticket-price">12 lei</div>
+      </div>
+
+      <!-- CATEGORIA: BĂUTURI -->
+      <div class="menu-ticket hidden" data-category="bauturi">
+        <div class="ticket-info">
+          <h4>Coca-Cola / Fanta / Sprite</h4>
+          <p>Doză 330ml</p>
+        </div>
+        <div class="ticket-price">7 lei</div>
+      </div>
+
+      <div class="menu-ticket hidden" data-category="bauturi">
+        <div class="ticket-info">
+          <h4>Aptă Plată / Minerală</h4>
+          <p>Sticlă 500ml</p>
+        </div>
+        <div class="ticket-price">5 lei</div>
+      </div>
+
+      <!-- CATEGORIA: MENIURI COMBO -->
+      <div class="menu-ticket hidden" data-category="combo">
+        <div class="ticket-info">
+          <h4>Meniu Shaorma Pui</h4>
+          <p>Shaorma pui clasică + cartofi + doză răcoritoare</p>
+        </div>
+        <div class="ticket-price">34 lei</div>
       </div>
 
     </div>
 
-    <!-- NOTĂ LIVRARE -->
+    <!-- BANNER LIVRARE (JOS) -->
     <div class="combo-note">
-      🔥 Livrare fără contact disponibilă — comandă direct prin telefon sau Wolt.
+      🔥 Livrare fără contact disponibilă — comandă prin buton mai sus (telefon sau Wolt).
     </div>
 
   </div>
 </section>
-
 <section id="galerie">
     <div class="wrap">
         <div class="sec-head">
