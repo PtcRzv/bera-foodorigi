@@ -423,7 +423,7 @@ section {
   }
 }
 
-/* ---------- MENU ---------- */
+/* ---------- MENU (Noul Design) ---------- */
 .menu-tabs {
   display: flex;
   gap: 10px;
@@ -436,18 +436,18 @@ section {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 10px 18px;
+  padding: 10px 20px;
   border-radius: 100px;
   border: 1.5px solid var(--ink);
   background: transparent;
   cursor: pointer;
   color: var(--ink);
-  transition: background .2s, color .2s;
+  transition: all .2s ease;
 }
 
 .tab-btn.active, .tab-btn:hover {
   background: var(--ink);
-  color: var(--gold-pale);
+  color: var(--gold);
 }
 
 .menu-cat {
@@ -457,80 +457,108 @@ section {
 .menu-cat.active {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 20px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 860px) {
   .menu-cat.active {
     grid-template-columns: 1fr;
   }
 }
 
-.ticket {
-  background: var(--cream);
-  border: 1.5px dashed var(--ink-soft);
-  border-radius: 4px;
-  padding: 18px 20px;
-  position: relative;
+/* CARD DE MENIU - STIL BERA FOOD */
+.menu-card {
+  background: #171310;
+  border: 1px solid rgba(250, 243, 227, 0.12);
+  border-radius: 16px;
+  padding: 24px;
+  color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.menu-card-header {
+  border-bottom: 1px solid rgba(250, 243, 227, 0.1);
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+
+.menu-card-header h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.menu-card-header p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: rgba(250, 243, 227, 0.6);
+  margin: 4px 0 0 0;
+}
+
+/* LISTA DE PRODUSE DIN CARD */
+.menu-card-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.menu-item-row {
   display: flex;
   justify-content: space-between;
-  gap: 14px;
-  align-items: flex-start;
-}
-
-.ticket::before, .ticket::after {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: var(--cream-dim);
-  border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.ticket::before {
-  left: -9px;
-  box-shadow: 0 0 0 1.5px var(--ink-soft) inset;
-}
-
-.ticket::after {
-  right: -9px;
-  box-shadow: 0 0 0 1.5px var(--ink-soft) inset;
-}
-
-.ticket h4 {
-  font-family: 'Work Sans';
-  font-weight: 700;
-  font-size: 16.5px;
-  margin: 0 0 4px;
-}
-
-.ticket p {
-  font-size: 13px;
-  color: var(--ink-soft);
-  margin: 0;
-  line-height: 1.4;
-}
-
-.ticket .price {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
-  font-size: 17px;
-  color: var(--gold-deep);
-  white-space: nowrap;
-}
-
-.combo-note {
-  margin-top: 26px;
-  padding: 16px 20px;
-  border-radius: 12px;
-  background: var(--spice);
-  color: var(--cream);
-  font-size: 14px;
-  display: flex;
-  gap: 10px;
   align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(250, 243, 227, 0.08);
+}
+
+.menu-item-row:last-child {
+  border-bottom: none;
+}
+
+.menu-item-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* VARIANTE DE PREȚ (MICA / FARAON / GRAMAJ) */
+.menu-item-prices {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.price-variant {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.price-variant .label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: rgba(250, 243, 227, 0.5);
+}
+
+.price-variant .val {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.price-variant .grams {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: rgba(250, 243, 227, 0.4);
 }
 
 /* ---------- GALLERY ---------- */
