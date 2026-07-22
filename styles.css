@@ -423,88 +423,69 @@ section {
   }
 }
 
-/* ---------- MENU (Noul Design) ---------- */
-.menu-tabs {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 34px;
-}
-
-.tab-btn {
-  font-family: 'Space Mono', monospace;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 10px 20px;
-  border-radius: 100px;
-  border: 1.5px solid var(--ink);
-  background: transparent;
-  cursor: pointer;
-  color: var(--ink);
-  transition: all .2s ease;
-}
-
-.tab-btn.active, .tab-btn:hover {
-  background: var(--ink);
-  color: var(--gold);
-}
-
-.menu-cat {
-  display: none;
-}
-
-.menu-cat.active {
+/* ---------- STIL MENIU EXACT CA ÎN PANOU ---------- */
+.menu-board-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }
 
-@media (max-width: 860px) {
-  .menu-cat.active {
-    grid-template-columns: 1fr;
-  }
+/* Cardurile mari de sus (Saorma si La Farfurie) ocupă 3 coloane din 6 */
+.menu-card.card-wide {
+  grid-column: span 3;
 }
 
-/* CARD DE MENIU - STIL BERA FOOD */
+/* Cardurile mici de jos (Kebab, Oriental, Salate) ocupă 2 coloane din 6 */
 .menu-card {
+  grid-column: span 2;
   background: #171310;
-  border: 1px solid rgba(250, 243, 227, 0.12);
-  border-radius: 16px;
+  border: 1px solid rgba(253, 185, 43, 0.25);
+  border-radius: 20px;
   padding: 24px;
   color: var(--cream);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+  position: relative;
 }
 
 .menu-card-header {
-  border-bottom: 1px solid rgba(250, 243, 227, 0.1);
-  padding-bottom: 14px;
-  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(250, 243, 227, 0.12);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .menu-card-header h3 {
   font-family: 'Oswald', sans-serif;
-  font-size: 28px;
-  color: var(--gold);
-  letter-spacing: 0.03em;
+  font-size: 32px;
+  color: #fdb92b;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
+  margin: 0;
 }
 
-.menu-card-header p {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
-  color: rgba(250, 243, 227, 0.6);
-  margin: 4px 0 0 0;
+/* Cap de tabel cu denumirile MICĂ / FARAON */
+.menu-cols-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
 }
 
-/* LISTA DE PRODUSE DIN CARD */
+.col-labels {
+  display: flex;
+  gap: 24px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: rgba(253, 185, 43, 0.85);
+  letter-spacing: 0.08em;
+  font-weight: bold;
+}
+
+/* Rândurile cu preparate */
 .menu-card-items {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .menu-item-row {
@@ -521,17 +502,15 @@ section {
 
 .menu-item-name {
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 15px;
   color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
 }
 
-/* VARIANTE DE PREȚ (MICA / FARAON / GRAMAJ) */
 .menu-item-prices {
   display: flex;
-  gap: 16px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -539,28 +518,51 @@ section {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  min-width: 45px;
 }
 
-.price-variant .label {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  text-transform: uppercase;
-  color: rgba(250, 243, 227, 0.5);
+.price-variant.empty {
+  visibility: hidden;
 }
 
 .price-variant .val {
   font-family: 'Oswald', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
-  color: var(--gold);
+  color: #fdb92b;
+  line-height: 1;
+}
+
+.price-variant .val small {
+  font-size: 12px;
+  font-weight: normal;
+  color: rgba(250, 243, 227, 0.7);
 }
 
 .price-variant .grams {
   font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  color: rgba(250, 243, 227, 0.4);
+  font-size: 10px;
+  color: rgba(250, 243, 227, 0.45);
+  margin-top: 2px;
 }
 
+/* ADAPTARE MOBIL ȘI TABLETĂ */
+@media (max-width: 980px) {
+  .menu-card.card-wide,
+  .menu-card {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 680px) {
+  .menu-board-grid {
+    grid-template-columns: 1fr;
+  }
+  .menu-card.card-wide,
+  .menu-card {
+    grid-column: span 1;
+  }
+}
 /* ---------- GALLERY ---------- */
 .gal-tabs {
   display: flex;
