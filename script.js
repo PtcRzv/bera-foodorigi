@@ -11,27 +11,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- 1.5. ANIMAȚIE SMOOTH SCROLL (DESKTOP + MOBIL) ---------- */
+  /* ---------- 1.5. ANIMAȚIE MANUALĂ PENTRU DESKTOP ---------- */
+  function smoothScrollTo(targetPosition, duration) {
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      
+      // Funcție de easing pentru mișcare lină (ease-in-out)
+      const ease = progress < 0.5 
+        ? 2 * progress * progress 
+        : -1 + (4 - 2 * progress) * progress;
+
+      window.scrollTo(0, startPosition + distance * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    }
+
+    requestAnimationFrame(animation);
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
-      
       if (targetId === '#' || !targetId) return;
 
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();
 
-        // Calculăm înălțimea header-ului sticky (cca. 70px) pentru offset
-        const headerOffset = 70;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        const headerOffset = 70; // Ajustare pentru meniul fix
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
-        // Executăm derularea lină calculată în pixeli
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+        // Execută animația timp de 600 milisecunde (0.6s)
+        smoothScrollTo(targetPosition, 600);
       }
     });
   });
