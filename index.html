@@ -94,7 +94,7 @@
     </div>
 </section>
 
-<!-- SECȚIUNE MENIU (ID CORECIAT PENTRU SCROLL) -->
+<!-- SECȚIUNE MENIU -->
 <section id="meniu">
   <div class="wrap">
     <div class="sec-head">
@@ -234,22 +234,60 @@
   </div>
 </section>
 
+<!-- SECȚIUNE GALERIE (CU POZELE TALE 1.PNG - 7.PNG) -->
 <section id="galerie">
     <div class="wrap">
         <div class="sec-head">
-            <h2>Galerie</h2>
-            <p>Imagini cu preparatele noastre delicioase.</p>
+            <span class="eyebrow">Galerie Foto</span>
+            <h2>FOTOGRAFII & ATMOSFERĂ</h2>
+            <p>Imagini cu preparatele noastre delicioase pregătite zilnic.</p>
         </div>
+
         <div class="gal-tabs" id="galTabs">
             <button class="tab-btn active" data-gcat="all">Toate</button>
-            <button class="tab-btn" data-gcat="shaorma">Shaorma</button>
-            <button class="tab-btn" data-gcat="burgeri">Burgeri</button>
+            <button class="tab-btn" data-gcat="meniu">Meniu</button>
+            <button class="tab-btn" data-gcat="vibe">Vibe</button>
+            <button class="tab-btn" data-gcat="proprietar">De la proprietar</button>
         </div>
+
         <div class="gallery" id="gallery">
-            <!-- Gallery items will be populated here -->
+            <div class="g-item" data-gcat="meniu">
+                <img src="1.png" alt="Platou Shaorma si Cartofi">
+                <div class="g-overlay"><span>Meniu • Platou Special</span></div>
+            </div>
+            <div class="g-item" data-gcat="meniu">
+                <img src="2.png" alt="Salata cu Pui Crispy">
+                <div class="g-overlay"><span>Meniu • Salată Crispy</span></div>
+            </div>
+            <div class="g-item" data-gcat="vibe">
+                <img src="3.png" alt="Sandwich Pita">
+                <div class="g-overlay"><span>Vibe • Pita Pui</span></div>
+            </div>
+            <div class="g-item" data-gcat="vibe">
+                <img src="4.png" alt="Doner Box">
+                <div class="g-overlay"><span>Vibe • Döner Box</span></div>
+            </div>
+            <div class="g-item" data-gcat="proprietar">
+                <img src="5.png" alt="Meniu Farfurie cu Sosuri">
+                <div class="g-overlay"><span>Proprietar • Meniu Farfurie</span></div>
+            </div>
+            <div class="g-item" data-gcat="vibe">
+                <img src="6.png" alt="Aripioare Crispy">
+                <div class="g-overlay"><span>Vibe • Meniu Aripioare</span></div>
+            </div>
+            <div class="g-item" data-gcat="meniu">
+                <img src="7.png" alt="Burger Crispy">
+                <div class="g-overlay"><span>Meniu • Burger Crispy</span></div>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- LIGHTBOX PENTRU MARESTE POZA LA CLICK -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <img src="" alt="Poza mare" id="lightboxImg">
+</div>
 
 <section id="recenzii">
     <div class="wrap">
