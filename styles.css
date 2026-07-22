@@ -575,7 +575,7 @@ section {
   gap: 10px;
 }
 
-/* ---------- GALLERY (ACTUALIZATĂ CU IMAGINI REALE) ---------- */
+/* ---------- GALLERY ---------- */
 .gal-tabs {
   display: flex;
   gap: 10px;
@@ -760,6 +760,12 @@ section {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+/* Asigură declanșarea click-ului pe buton, chiar dacă se apasă pe pictograme sau numere */
+.react-btn *,
+.rev-actions button * {
+  pointer-events: none;
 }
 
 .react-btn {
