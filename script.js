@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 5. SISTEM VOT RECENZII
+  // 5. SISTEM VOT RECENZII (RESETAT LA 0)
   // ==========================================
   const revCards = document.querySelectorAll('.rev-card');
 
@@ -150,6 +150,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const dislikeBtn = card.querySelector('.dislike, .react-btn.dislike');
 
     if (!likeBtn || !dislikeBtn) return;
+
+    // Resetează valorile vizuale la 0 direct în elemente
+    const likeCountSpan = likeBtn.querySelector('.count, span') || likeBtn;
+    const dislikeCountSpan = dislikeBtn.querySelector('.count, span') || dislikeBtn;
+
+    if (likeCountSpan !== likeBtn) {
+      likeCountSpan.textContent = '0';
+    } else {
+      likeCountSpan.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) node.textContent = ' 0';
+      });
+    }
+
+    if (dislikeCountSpan !== dislikeBtn) {
+      dislikeCountSpan.textContent = '0';
+    } else {
+      dislikeCountSpan.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) node.textContent = ' 0';
+      });
+    }
 
     const storageKey = `voted_recenzie_${index}`;
     const savedVote = localStorage.getItem(storageKey);
