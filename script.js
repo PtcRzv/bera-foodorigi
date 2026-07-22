@@ -1,160 +1,124 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- 1. MENIU MOBIL (NAV) ---------- */
-  const burgerBtn = document.getElementById('burgerBtn');
-  const navLinks = document.getElementById('navLinks');
+  // ==========================================
+  // 1. LIGHTBOX / POP-UP PENTRU GALERIE FOTO
+  // ==========================================
+  const galleryItems = document.querySelectorAll('.g-item');
+  const lightbox = document.querySelector('.lightbox');
+  const lightboxImg = document.querySelector('.lightbox img');
+  const lightboxClose = document.querySelector('.lightbox-close');
 
-  if (burgerBtn && navLinks) {
-    burgerBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
-  }
-
-  /* ---------- 1.5. ANIMAȚIE MANUALĂ PENTRU DESKTOP ---------- */
-  function smoothScrollTo(targetPosition, duration) {
-    const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
-    let startTime = null;
-
-    function animation(currentTime) {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-      
-      // Funcție de easing pentru mișcare lină (ease-in-out)
-      const ease = progress < 0.5 
-        ? 2 * progress * progress 
-        : -1 + (4 - 2 * progress) * progress;
-
-      window.scrollTo(0, startPosition + distance * ease);
-
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animation);
-      }
-    }
-
-    requestAnimationFrame(animation);
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#' || !targetId) return;
-
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-
-        const headerOffset = 70; // Ajustare pentru meniul fix
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-
-        // Execută animația timp de 600 milisecunde (0.6s)
-        smoothScrollTo(targetPosition, 600);
-      }
-    });
-  });
-
-  /* ---------- 2. TAB-URI MENIU (FILTRARE DUPĂ CATEGORIE) ---------- */
-  const menuTabs = document.querySelector('.menu-tabs');
-  
-  if (menuTabs) {
-    menuTabs.addEventListener('click', (e) => {
-      const btn = e.target.closest('.tab-btn');
-      if (!btn) return;
-
-      // Schimbă butonul activ
-      menuTabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // Filtrează cardurile de meniu (.menu-ticket)
-      const selectedCat = btn.dataset.category || btn.dataset.cat;
-      const tickets = document.querySelectorAll('.menu-ticket');
-
-      tickets.forEach(ticket => {
-        if (ticket.dataset.category === selectedCat || ticket.dataset.cat === selectedCat) {
-          ticket.classList.remove('hidden');
-        } else {
-          ticket.classList.add('hidden');
+  if (lightbox && lightboxImg) {
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        if (img) {
+          // Luăm calea imaginii (src) din cardul pe care s-a apasat click
+          const imageSource = img.getAttribute('src');
+          
+          if (imageSource) {
+            lightboxImg.src = imageSource;
+            lightboxImg.alt = img.alt || 'Imagine marită';
+            lightbox.classList.add('open');
+          }
         }
       });
     });
-  }
 
-  /* ---------- 3. GALERIE & TAB-URI GALERIE ---------- */
-  const galTabs = document.getElementById('galTabs');
-  const gallery = document.getElementById('gallery');
-
-  if (galTabs) {
-    galTabs.addEventListener('click', (e) => {
-      const btn = e.target.closest('.tab-btn');
-      if (!btn) return;
-
-      document.querySelectorAll('#galTabs .tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const cat = btn.dataset.gcat;
-      document.querySelectorAll('#gallery .g-item').forEach(item => {
-        item.classList.toggle('hidden-cat', cat !== 'all' && item.dataset.gcat !== cat);
-      });
-    });
-  }
-
-  /* ---------- 4. LIGHTBOX GALERIE ---------- */
-  const lightbox = document.getElementById('lightbox');
-  const lightboxClose = document.getElementById('lightboxClose');
-
-  if (gallery && lightbox) {
-    gallery.addEventListener('click', (e) => {
-      if (!e.target.closest('.g-item')) return;
-      lightbox.classList.add('open');
-    });
-
+    // Închidere pe butonul X
     if (lightboxClose) {
-      lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+      lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('open');
+      });
     }
 
+    // Închidere la click în afara imaginii (pe fundalul întunecat)
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) lightbox.classList.remove('open');
+      if (e.target === lightbox) {
+        lightbox.classList.remove('open');
+      }
+    });
+
+    // Închidere când se apasă tasta ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        lightbox.classList.remove('open');
+      }
     });
   }
 
-  /* ---------- 5. REACȚII RECENZII (LIKE / REACTION) ---------- */
-  document.querySelectorAll('.rev-actions').forEach(group => {
-    const buttons = group.querySelectorAll('.react-btn');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (btn.disabled) return;
-        const cntEl = btn.querySelector('.cnt');
-        if (cntEl) {
-          cntEl.textContent = parseInt(cntEl.textContent, 10) + 1;
-        }
-        btn.classList.add('active');
-        buttons.forEach(b => b.disabled = true);
+  // ==========================================
+  // 2. FILTRARE CATEGORII GALERIE
+  // ==========================================
+  const galTabs = document.querySelectorAll('.gal-tabs .tab-btn');
+  
+  if (galTabs.length > 0) {
+    galTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Schimbăm clasa activă pe butoane
+        galTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const filterValue = tab.getAttribute('data-filter');
+
+        galleryItems.forEach(item => {
+          if (filterValue === 'all' || item.getAttribute('data-cat') === filterValue) {
+            item.classList.remove('hidden-cat');
+          } else {
+            item.classList.add('hidden-cat');
+          }
+        });
       });
     });
-  });
-
-  /* ---------- 6. MODAL COMANDĂ ---------- */
-  const orderModal = document.getElementById('orderModal');
-  const openOrderNav = document.getElementById('openOrderNav');
-  const openOrderHero = document.getElementById('openOrderHero');
-  const orderModalClose = document.getElementById('orderModalClose');
-
-  function openOrder() {
-    if (orderModal) orderModal.classList.add('open');
   }
 
-  if (openOrderNav) openOrderNav.addEventListener('click', openOrder);
-  if (openOrderHero) openOrderHero.addEventListener('click', openOrder);
-  
-  if (orderModalClose && orderModal) {
-    orderModalClose.addEventListener('click', () => orderModal.classList.remove('open'));
+  // ==========================================
+  // 3. MENIU MOBIL (BURGER MENU)
+  // ==========================================
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('nav.links');
+
+  if (burger && navLinks) {
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Închidem meniul mobil când se dă click pe un link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
   }
+
+  // ==========================================
+  // 4. MODAL COMANDĂ (ORDER MODAL)
+  // ==========================================
+  const orderModal = document.querySelector('.order-modal');
+  const orderBtns = document.querySelectorAll('.order-btn, .btn-primary');
+  const orderModalClose = document.querySelector('.order-modal-close');
 
   if (orderModal) {
+    orderBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // Deschidem modalul doar dacă butonul nu este de tip submit simplu
+        if (btn.tagName === 'BUTTON' || btn.classList.contains('order-btn')) {
+          e.preventDefault();
+          orderModal.classList.add('open');
+        }
+      });
+    });
+
+    if (orderModalClose) {
+      orderModalClose.addEventListener('click', () => {
+        orderModal.classList.remove('open');
+      });
+    }
+
     orderModal.addEventListener('click', (e) => {
-      if (e.target === orderModal) orderModal.classList.remove('open');
+      if (e.target === orderModal) {
+        orderModal.classList.remove('open');
+      }
     });
   }
 
