@@ -423,145 +423,120 @@ section {
   }
 }
 
-/* ---------- STIL MENIU EXACT CA ÎN PANOU ---------- */
-.menu-board-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
-}
-
-/* Cardurile mari de sus (Saorma si La Farfurie) ocupă 3 coloane din 6 */
-.menu-card.card-wide {
-  grid-column: span 3;
-}
-
-/* Cardurile mici de jos (Kebab, Oriental, Salate) ocupă 2 coloane din 6 */
-.menu-card {
-  grid-column: span 2;
-  background: #171310;
-  border: 1px solid rgba(253, 185, 43, 0.25);
-  border-radius: 20px;
-  padding: 24px;
-  color: var(--cream);
+/* ---------- MENIU STIL BILET / CARD CU BULINE ---------- */
+.menu-tabs {
   display: flex;
-  flex-direction: column;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.35);
-  position: relative;
-}
-
-.menu-card-header {
-  border-bottom: 1px solid rgba(250, 243, 227, 0.12);
-  padding-bottom: 10px;
-  margin-bottom: 14px;
-}
-
-.menu-card-header h3 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 32px;
-  color: #fdb92b;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-/* Cap de tabel cu denumirile MICĂ / FARAON */
-.menu-cols-head {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.col-labels {
-  display: flex;
-  gap: 24px;
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  color: rgba(253, 185, 43, 0.85);
-  letter-spacing: 0.08em;
-  font-weight: bold;
-}
-
-/* Rândurile cu preparate */
-.menu-card-items {
-  display: flex;
-  flex-direction: column;
   gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
-.menu-item-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6px 0;
-  border-bottom: 1px dashed rgba(250, 243, 227, 0.08);
-}
-
-.menu-item-row:last-child {
-  border-bottom: none;
-}
-
-.menu-item-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  color: #ffffff;
-  letter-spacing: 0.03em;
-}
-
-.menu-item-prices {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-}
-
-.price-variant {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  min-width: 45px;
-}
-
-.price-variant.empty {
-  visibility: hidden;
-}
-
-.price-variant .val {
-  font-family: 'Oswald', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: #fdb92b;
-  line-height: 1;
-}
-
-.price-variant .val small {
-  font-size: 12px;
-  font-weight: normal;
-  color: rgba(250, 243, 227, 0.7);
-}
-
-.price-variant .grams {
+.tab-btn {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  color: rgba(250, 243, 227, 0.45);
-  margin-top: 2px;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 100px;
+  border: 1.5px solid #211a13;
+  background: transparent;
+  color: #211a13;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-/* ADAPTARE MOBIL ȘI TABLETĂ */
-@media (max-width: 980px) {
-  .menu-card.card-wide,
-  .menu-card {
-    grid-column: span 3;
-  }
+.tab-btn.active,
+.tab-btn:hover {
+  background: #211a13;
+  color: #fdb92b;
 }
 
-@media (max-width: 680px) {
-  .menu-board-grid {
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 860px) {
+  .menu-grid {
     grid-template-columns: 1fr;
   }
-  .menu-card.card-wide,
-  .menu-card {
-    grid-column: span 1;
-  }
+}
+
+/* Cardul negru cu buline pe margini */
+.menu-ticket {
+  background: #211a13;
+  color: #faf3e3;
+  border-radius: 12px;
+  padding: 22px 28px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.2s, opacity 0.3s;
+}
+
+.menu-ticket.hidden {
+  display: none !important;
+}
+
+/* Cercurile/Bulinele laterale din imagine */
+.menu-ticket::before,
+.menu-ticket::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #faf3e3; /* Culoarea fundalului paginii */
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-ticket::before {
+  left: -7px;
+}
+
+.menu-ticket::after {
+  right: -7px;
+}
+
+.ticket-info h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0 0 6px 0;
+  color: #ffffff;
+}
+
+.ticket-info p {
+  font-size: 13px;
+  color: rgba(250, 243, 227, 0.65);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.ticket-price {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fdb92b;
+  white-space: nowrap;
+}
+
+/* Banner de livrare */
+.combo-note {
+  margin-top: 30px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: #7a2412;
+  color: #faf3e3;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 /* ---------- GALLERY ---------- */
 .gal-tabs {
